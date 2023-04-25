@@ -1,0 +1,29 @@
+.container {
+  font-family: "Inter", sans-serif;
+  width: fit-content;
+  display: grid;
+  row-gap: 0.2rem;
+}
+
+.inputContainer {
+  display: flex;
+  justify-content: space-around;
+}
+
+.title {
+  font-weight: 500;
+  font-size: 1.5rem;
+}
+
+.input {
+  width: 6ch;
+  padding: 0.1rem 0.2rem;
+  font-size: 1.2rem;
+}
+
+.button {
+  display: flex;
+  background-color: transparent;
+  border-color: transparent;
+  align-items: center;
+}
