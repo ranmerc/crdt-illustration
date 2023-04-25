@@ -1,16 +1,16 @@
 import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
-import Counter from "@/components/GCounter";
-import { GCounter } from "crdts";
+import Counter from "@/components/PNCounter";
+import { PNCounter } from "crdts";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
 
-export default function GCounterPage() {
+export default function PNCounterPage() {
   const [counters, setCounters] = useState(() => {
     let counterArray = [];
 
     for (let i = 0; i < 3; i++) {
-      counterArray.push(new GCounter("A"));
+      counterArray.push(new PNCounter("A"));
     }
 
     return counterArray;
@@ -24,12 +24,12 @@ export default function GCounterPage() {
   return (
     <>
       <Head>
-        <title>G-Counter</title>
-        <meta name="description" content="G-Counter CRDT illustration" />
+        <title>PN-Counter</title>
+        <meta name="description" content="PN-Counter CRDT illustration" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={Styles.container}>
-        <h1 className={Styles.title}>Grow Only Counter</h1>
+        <h1 className={Styles.title}>Positive-Negative Counter</h1>
         <ul className={Styles.counterList}>
           {counters.map((counter, i) => {
             return (
@@ -37,6 +37,7 @@ export default function GCounterPage() {
                 name={`Counter ${i + 1}`}
                 key={i}
                 counter={counters[i]}
+                negative={true}
               />
             );
           })}
@@ -45,7 +46,7 @@ export default function GCounterPage() {
           <button
             className={Styles.addButton}
             onClick={() => {
-              setCounters((counters) => [...counters, new GCounter("A")]);
+              setCounters((counters) => [...counters, new PNCounter("A")]);
             }}
           >
             Add Counter

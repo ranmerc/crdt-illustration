@@ -10,6 +10,17 @@
   justify-content: space-around;
 }
 
+.pnInputContainer {
+  composes: inputContainer;
+  flex-direction: column;
+  row-gap: 0.5rem;
+}
+
+.pnInputContainer > * {
+  display: flex;
+  column-gap: 0.5rem;
+}
+
 .title {
   font-weight: 500;
   font-size: 1.5rem;
