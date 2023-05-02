@@ -1,7 +1,7 @@
 import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
 import PNCounterSystem from "@/components/PNCounterSystem";
-import { PNCounter } from "crdts";
+import PNCounter from "@/lib/PNCounter";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
 
