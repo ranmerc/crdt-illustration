@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Styles from "@/styles/Counter.module.css";
 
-export default function Counter({ name, counter }) {
+export default function PNCounterSystem({ name, counter }) {
   const [value, setValue] = useState(() => (counter ? counter.value : 0));
   const [pValue, setPValue] = useState(() => (counter ? counter.p.value : 0));
   const [nValue, setNValue] = useState(() => (counter ? counter.n.value : 0));

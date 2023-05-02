@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
-import Counter from "@/components/GCounter";
+import GCounterSystem from "@/components/GCounterSystem";
 import { GCounter } from "crdts";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
@@ -33,11 +33,7 @@ export default function GCounterPage() {
         <ul className={Styles.counterList}>
           {counters.map((counter, i) => {
             return (
-              <Counter
-                name={`Counter ${i + 1}`}
-                key={i}
-                counter={counters[i]}
-              />
+              <GCounterSystem name={`System ${i + 1}`} key={i} counter={counters[i]} />
             );
           })}
         </ul>
@@ -48,7 +44,7 @@ export default function GCounterPage() {
               setCounters((counters) => [...counters, new GCounter("A")]);
             }}
           >
-            Add Counter
+            Add System
           </button>
           <button
             onClick={() => {
@@ -57,7 +53,7 @@ export default function GCounterPage() {
             }}
             className={Styles.mergeButton}
           >
-            Merge Counters
+            Merge Systems
           </button>
         </div>
       </main>

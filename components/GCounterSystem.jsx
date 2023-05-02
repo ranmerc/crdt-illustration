@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import Styles from "@/styles/Counter.module.css";
 
-export default function Counter({ name, counter }) {
+export default function GCounterSystem({ name, counter }) {
   const [value, setValue] = useState(() => (counter ? counter.value : 0));
 
   // check on every counter if the value has changed

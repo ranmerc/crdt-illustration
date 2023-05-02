@@ -1,6 +1,6 @@
 import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
-import Counter from "@/components/PNCounter";
+import PNCounterSystem from "@/components/PNCounterSystem";
 import { PNCounter } from "crdts";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
@@ -33,8 +33,8 @@ export default function PNCounterPage() {
         <ul className={Styles.counterList}>
           {counters.map((counter, i) => {
             return (
-              <Counter
-                name={`Counter ${i + 1}`}
+              <PNCounterSystem
+                name={`System ${i + 1}`}
                 key={i}
                 counter={counters[i]}
                 negative={true}
@@ -49,7 +49,7 @@ export default function PNCounterPage() {
               setCounters((counters) => [...counters, new PNCounter("A")]);
             }}
           >
-            Add Counter
+            Add System
           </button>
           <button
             onClick={() => {
@@ -58,7 +58,7 @@ export default function PNCounterPage() {
             }}
             className={Styles.mergeButton}
           >
-            Merge Counters
+            Merge Systems
           </button>
         </div>
       </main>
