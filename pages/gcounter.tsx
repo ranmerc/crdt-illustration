@@ -10,7 +10,7 @@ export default function GCounterPage() {
     let counterArray = [];
 
     for (let i = 0; i < 3; i++) {
-      counterArray.push(new GCounter());
+      counterArray.push(new GCounter(0));
     }
 
     return counterArray;
@@ -45,7 +45,7 @@ export default function GCounterPage() {
           <button
             className={Styles.addButton}
             onClick={() => {
-              setCounters((counters) => [...counters, new GCounter()]);
+              setCounters((counters) => [...counters, new GCounter(0)]);
             }}
           >
             Add System

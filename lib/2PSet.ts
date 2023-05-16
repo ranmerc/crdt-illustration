@@ -1,6 +1,9 @@
 import GSet from "./GSet";
 
 export default class TwoPSet {
+  private _added: GSet;
+  private _removed: GSet;
+
   constructor() {
     this._added = new GSet();
     this._removed = new GSet();

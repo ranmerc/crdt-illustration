@@ -1,4 +1,6 @@
 export default class GSet {
+  private _values: Set<any>;
+
   constructor() {
     this._values = new Set();
   }
@@ -7,11 +9,11 @@ export default class GSet {
     return Array.from(this._values);
   }
 
-  add(value) {
+  add(value: any) {
     this._values.add(value);
   }
 
-  merge(other) {
-    this._values = new Set([...this._values, ...other._values]);
+  merge(other: GSet) {
+    this._values = new Set([...this.values(), ...other.values()]);
   }
 }

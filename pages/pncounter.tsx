@@ -10,7 +10,7 @@ export default function PNCounterPage() {
     let counterArray = [];
 
     for (let i = 0; i < 3; i++) {
-      counterArray.push(new PNCounter("A"));
+      counterArray.push(new PNCounter());
     }
 
     return counterArray;
@@ -37,7 +37,6 @@ export default function PNCounterPage() {
                 name={`System ${i + 1}`}
                 key={i}
                 counter={counters[i]}
-                negative={true}
               />
             );
           })}
@@ -46,7 +45,7 @@ export default function PNCounterPage() {
           <button
             className={Styles.addButton}
             onClick={() => {
-              setCounters((counters) => [...counters, new PNCounter("A")]);
+              setCounters((counters) => [...counters, new PNCounter()]);
             }}
           >
             Add System

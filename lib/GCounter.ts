@@ -1,5 +1,7 @@
 export default class GCounter {
-  constructor(initialValue) {
+  private _counter: number;
+
+  constructor(initialValue: number) {
     this._counter = initialValue ?? 0;
   }
 
@@ -7,7 +9,7 @@ export default class GCounter {
     return this._counter;
   }
 
-  increment(amount) {
+  increment(amount: number) {
     if (amount && amount < 1) return;
 
     if (amount === undefined || amount === null) amount = 1;
@@ -15,7 +17,7 @@ export default class GCounter {
     this._counter = this._counter + amount;
   }
 
-  merge(other) {
+  merge(other: GCounter) {
     this._counter = Math.max(this._counter, other._counter);
   }
 }
