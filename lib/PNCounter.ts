@@ -4,20 +4,27 @@ export default class PNCounter {
   p: GCounter;
   n: GCounter;
 
-  constructor() {
-    this.p = new GCounter(0);
-    this.n = new GCounter(0);
+  constructor(
+    initialValues: {
+      pVal?: number;
+      nVal?: number;
+    } = {}
+  ) {
+    let initialP = initialValues.pVal ?? 0;
+    let initialN = initialValues.nVal ?? 0;
+    this.p = new GCounter(initialP);
+    this.n = new GCounter(initialN);
   }
 
   get value() {
     return this.p.value - this.n.value;
   }
 
-  increment(amount: number) {
+  increment(amount?: number) {
     this.p.increment(amount);
   }
 
-  decrement(amount: number) {
+  decrement(amount?: number) {
     this.n.increment(amount);
   }
 

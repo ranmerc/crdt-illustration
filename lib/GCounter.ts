@@ -1,15 +1,15 @@
 export default class GCounter {
   private _counter: number;
 
-  constructor(initialValue: number) {
-    this._counter = initialValue ?? 0;
+  constructor(initialValue = 0) {
+    this._counter = initialValue;
   }
 
   get value() {
     return this._counter;
   }
 
-  increment(amount: number) {
+  increment(amount?: number) {
     if (amount && amount < 1) return;
 
     if (amount === undefined || amount === null) amount = 1;
