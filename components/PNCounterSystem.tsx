@@ -32,7 +32,7 @@ export default function PNCounterSystem({
 
   return (
     <>
-      <div className={Styles.container}>
+      <div className={`${Styles.container} new-item`}>
         <h3 className={Styles.title}>{name}</h3>
         <div className={Styles.pnInputContainer}>
           <div>
@@ -52,6 +52,7 @@ export default function PNCounterSystem({
                 setValue((value) => value + 1);
               }}
               className={Styles.button}
+              title="increment p counter"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -83,6 +84,7 @@ export default function PNCounterSystem({
                 setValue((value) => value - 1);
               }}
               className={Styles.button}
+              title="increment n counter"
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"

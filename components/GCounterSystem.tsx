@@ -20,7 +20,7 @@ export default function GCounterSystem({
 
   return (
     <>
-      <div className={Styles.container}>
+      <div className={`${Styles.container} new-item`}>
         <h3 className={Styles.title}>{name}</h3>
         <div className={Styles.inputContainer}>
           <input
@@ -37,6 +37,7 @@ export default function GCounterSystem({
               setValue((value) => value + 1);
             }}
             className={Styles.button}
+            title="increment counter"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
