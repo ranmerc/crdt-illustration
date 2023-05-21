@@ -4,6 +4,8 @@ import GCounterSystem from "@/components/GCounterSystem";
 import GCounter from "@/lib/GCounter";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
+import PageTitle from "@/components/PageTitle/PageTitle";
+import CounterButtonsBar from "@/components/CounterButtonsBar/CounterButtonsBar";
 
 export default function GCounterPage() {
   const [counters, setCounters] = useState(() => {
@@ -29,7 +31,7 @@ export default function GCounterPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={Styles.container}>
-        <h1 className={Styles.title}>Grow Only Counter</h1>
+        <PageTitle>Grow-only Counter</PageTitle>
         <ul className={Styles.counterList}>
           {counters.map((counter, i) => {
             return (
@@ -41,25 +43,15 @@ export default function GCounterPage() {
             );
           })}
         </ul>
-        <div className={Styles.buttonContainer}>
-          <button
-            className={Styles.addButton}
-            onClick={() => {
-              setCounters((counters) => [...counters, new GCounter(0)]);
-            }}
-          >
-            Add System
-          </button>
-          <button
-            onClick={() => {
-              mergeCounters(counters);
-              setMergeCount((c) => c + 1);
-            }}
-            className={Styles.mergeButton}
-          >
-            Merge Systems
-          </button>
-        </div>
+        <CounterButtonsBar
+          onAddClick={() => {
+            setCounters((counters) => [...counters, new GCounter(0)]);
+          }}
+          onMergeClick={() => {
+            mergeCounters(counters);
+            setMergeCount((c) => c + 1);
+          }}
+        ></CounterButtonsBar>
       </main>
     </>
   );

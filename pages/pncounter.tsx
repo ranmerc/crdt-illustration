@@ -4,6 +4,8 @@ import PNCounterSystem from "@/components/PNCounterSystem";
 import PNCounter from "@/lib/PNCounter";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
+import PageTitle from "@/components/PageTitle/PageTitle";
+import CounterButtonsBar from "@/components/CounterButtonsBar/CounterButtonsBar";
 
 export default function PNCounterPage() {
   const [counters, setCounters] = useState(() => {
@@ -29,7 +31,7 @@ export default function PNCounterPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </Head>
       <main className={Styles.container}>
-        <h1 className={Styles.title}>Positive-Negative Counter</h1>
+        <PageTitle>Positive-Negative Counter</PageTitle>
         <ul className={Styles.counterList}>
           {counters.map((counter, i) => {
             return (
@@ -41,25 +43,15 @@ export default function PNCounterPage() {
             );
           })}
         </ul>
-        <div className={Styles.buttonContainer}>
-          <button
-            className={Styles.addButton}
-            onClick={() => {
-              setCounters((counters) => [...counters, new PNCounter()]);
-            }}
-          >
-            Add System
-          </button>
-          <button
-            onClick={() => {
-              mergeCounters(counters);
-              setMergeCount((c) => c + 1);
-            }}
-            className={Styles.mergeButton}
-          >
-            Merge Systems
-          </button>
-        </div>
+        <CounterButtonsBar
+          onAddClick={() => {
+            setCounters((counters) => [...counters, new PNCounter()]);
+          }}
+          onMergeClick={() => {
+            mergeCounters(counters);
+            setMergeCount((c) => c + 1);
+          }}
+        ></CounterButtonsBar>
       </main>
     </>
   );
