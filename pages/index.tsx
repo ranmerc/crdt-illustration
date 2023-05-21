@@ -19,13 +19,13 @@ export default function Home() {
             href="/gcounter"
             src="/gcounter.png"
             name="Grow-only Counter"
-            description="A counter which can only be incremented"
+            description="A counter which can only be incremented."
           />
           <TypeCard
             href="/pncounter"
             src="/pncounter.png"
             name="Positive-Negative Counter."
-            description="A counter which can be both incremented and decremented. Built using two GCounter."
+            description="A counter which can be both incremented and decremented. Built using two GCounters."
           />
         </div>
       </main>
