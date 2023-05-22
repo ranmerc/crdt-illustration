@@ -1,4 +1,4 @@
-import PNCounter from "../../lib/PNCounter";
+import PNCounter from "./PNCounter";
 
 function randomNumber(lower: number, upper: number) {
   return Math.floor((upper - lower) * Math.random()) + lower;

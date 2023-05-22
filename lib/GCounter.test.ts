@@ -1,4 +1,4 @@
-import GCounter from "../../lib/GCounter";
+import GCounter from "./GCounter";
 
 describe("GCounter initialization", () => {
   test("Default initializing with 0", () => {

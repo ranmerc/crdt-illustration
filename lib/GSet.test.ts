@@ -1,4 +1,4 @@
-import GSet from "../../lib/GSet";
+import GSet from "./GSet";
 
 describe("GSet initialization", () => {
   test("Initializes with empty set", () => {
