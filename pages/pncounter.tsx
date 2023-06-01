@@ -1,27 +1,22 @@
 import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
-import PNCounterSystem from "@/components/PNCounterSystem";
-import PNCounter from "@/lib/PNCounter";
+import PNCounterSystem from "@/components/CounterSystem/PNCounterSystem";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import CounterButtonsBar from "@/components/CounterButtonsBar/CounterButtonsBar";
+import PNCounterStore from "@/stores/PNCounterStore";
 
 export default function PNCounterPage() {
   const [counters, setCounters] = useState(() => {
     let counterArray = [];
 
     for (let i = 0; i < 3; i++) {
-      counterArray.push(new PNCounter());
+      counterArray.push(new PNCounterStore());
     }
 
     return counterArray;
   });
-
-  // to cause rerender of children,
-  // rerender forces children to update their state
-  // value based on current counter value
-  const [mergeCount, setMergeCount] = useState(0);
 
   return (
     <>
@@ -38,20 +33,21 @@ export default function PNCounterPage() {
               <PNCounterSystem
                 name={`System ${i + 1}`}
                 key={i}
-                counter={counters[i]}
+                counter={counter}
               />
             );
           })}
         </ul>
+
         <CounterButtonsBar
           onAddClick={() => {
-            setCounters((counters) => [...counters, new PNCounter()]);
+            setCounters((counters) => [...counters, new PNCounterStore()]);
           }}
           onMergeClick={() => {
             mergeCounters(counters);
-            setMergeCount((c) => c + 1);
           }}
         ></CounterButtonsBar>
+
         <section className={Styles.about}>
           <h3>About</h3>
           <div>

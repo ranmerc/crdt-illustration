@@ -1,22 +1,19 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Styles from "@/styles/Counter.module.css";
-import GCounter from "@/lib/GCounter";
+import GCounterStore from "@/stores/GCounterStore";
 
 export default function GCounterSystem({
   name,
   counter,
 }: {
   name: string;
-  counter: GCounter;
+  counter: GCounterStore;
 }) {
-  const [value, setValue] = useState(() => (counter ? counter.value : 0));
-
-  // check on every counter if the value has changed
-  useEffect(() => {
-    if (counter && value !== counter.value) {
-      setValue(counter.value);
-    }
-  });
+  const value = useSyncExternalStore(
+    counter.subscribe,
+    counter.getSnapshot,
+    counter.getServerSnapshot
+  );
 
   return (
     <>
@@ -32,9 +29,7 @@ export default function GCounterSystem({
           <button
             type="button"
             onClick={() => {
-              // syncing updates to state and counter
-              counter.increment(1);
-              setValue((value) => value + 1);
+              counter.increment();
             }}
             className={Styles.button}
             title="increment counter"

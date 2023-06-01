@@ -1,27 +1,22 @@
 import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
-import GCounterSystem from "@/components/GCounterSystem";
-import GCounter from "@/lib/GCounter";
+import GCounterSystem from "@/components/CounterSystem/GCounterSystem";
 import { useState } from "react";
 import mergeCounters from "@/utils/mergeCounters";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import CounterButtonsBar from "@/components/CounterButtonsBar/CounterButtonsBar";
+import GCounterStore from "@/stores/GCounterStore";
 
 export default function GCounterPage() {
   const [counters, setCounters] = useState(() => {
     let counterArray = [];
 
     for (let i = 0; i < 3; i++) {
-      counterArray.push(new GCounter(0));
+      counterArray.push(new GCounterStore());
     }
 
     return counterArray;
   });
-
-  // to cause rerender of children,
-  // rerender forces children to update their state
-  // value based on current counter value
-  const [mergeCount, setMergeCount] = useState(0);
 
   return (
     <>
@@ -32,26 +27,30 @@ export default function GCounterPage() {
       </Head>
       <main className={Styles.container}>
         <PageTitle>Grow-only Counter</PageTitle>
+
         <ul className={Styles.counterList}>
           {counters.map((counter, i) => {
             return (
               <GCounterSystem
                 name={`System ${i + 1}`}
                 key={i}
-                counter={counters[i]}
+                counter={counter}
               />
             );
           })}
         </ul>
+
         <CounterButtonsBar
           onAddClick={() => {
-            setCounters((counters) => [...counters, new GCounter(0)]);
+            setCounters((counters) => {
+              return [...counters, new GCounterStore()];
+            });
           }}
           onMergeClick={() => {
             mergeCounters(counters);
-            setMergeCount((c) => c + 1);
           }}
         ></CounterButtonsBar>
+
         <section className={Styles.about}>
           <h3>About</h3>
           <div>

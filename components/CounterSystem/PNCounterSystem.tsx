@@ -1,34 +1,19 @@
-import { useEffect, useState } from "react";
+import { useSyncExternalStore } from "react";
 import Styles from "@/styles/Counter.module.css";
-import PNCounter from "@/lib/PNCounter";
+import PNCounterStore from "@/stores/PNCounterStore";
 
 export default function PNCounterSystem({
   name,
   counter,
 }: {
   name: string;
-  counter: PNCounter;
+  counter: PNCounterStore;
 }) {
-  const [value, setValue] = useState(() => (counter ? counter.value : 0));
-  const [pValue, setPValue] = useState(() => (counter ? counter.p.value : 0));
-  const [nValue, setNValue] = useState(() => (counter ? counter.n.value : 0));
-
-  // check on every counter if the value has changed
-  useEffect(() => {
-    if (counter) {
-      if (value !== counter.value) {
-        setValue(counter.value);
-      }
-
-      if (pValue !== counter.p.value) {
-        setPValue(counter.p.value);
-      }
-
-      if (nValue !== counter.n.value) {
-        setNValue(counter.n.value);
-      }
-    }
-  });
+  const values = useSyncExternalStore(
+    counter.subscribe,
+    counter.getSnapshot,
+    counter.getServerSnapshot
+  );
 
   return (
     <>
@@ -39,17 +24,14 @@ export default function PNCounterSystem({
             <input
               type="number"
               disabled
-              value={pValue}
+              value={values.p}
               className={Styles.input}
             />
 
             <button
               type="button"
               onClick={() => {
-                // syncing updates to state and counter
-                // increment p counter
-                counter.increment(1);
-                setValue((value) => value + 1);
+                counter.increment();
               }}
               className={Styles.button}
               title="increment p counter"
@@ -72,16 +54,13 @@ export default function PNCounterSystem({
             <input
               type="number"
               disabled
-              value={nValue}
+              value={values.n}
               className={Styles.input}
             />
             <button
               type="button"
               onClick={() => {
-                // syncing updates to state and counter
-                // increment n counter
-                counter.decrement(1);
-                setValue((value) => value - 1);
+                counter.decrement();
               }}
               className={Styles.button}
               title="increment n counter"
@@ -103,7 +82,7 @@ export default function PNCounterSystem({
           <input
             type="number"
             disabled
-            value={value}
+            value={values.value}
             className={Styles.input}
           />
         </div>
