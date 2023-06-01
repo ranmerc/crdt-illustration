@@ -1,6 +1,6 @@
-type GSetTypes = string | number | boolean;
+export type GSetTypes = string | number | boolean;
 
-type GSetIterable = Array<GSetTypes> | Set<GSetTypes>;
+export type GSetIterable = Array<GSetTypes> | Set<GSetTypes>;
 
 export default class GSet {
   private _values: Set<GSetTypes>;
@@ -17,8 +17,8 @@ export default class GSet {
     return differenceSet;
   }
 
-  constructor(initialSet?: GSetIterable) {
-    this._values = initialSet ? new Set(initialSet) : new Set();
+  constructor(initial?: GSetIterable) {
+    this._values = initial ? new Set(initial) : new Set();
   }
 
   values() {
