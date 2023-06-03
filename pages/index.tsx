@@ -1,6 +1,5 @@
 import Head from "next/head";
 import Styles from "@/styles/Home.module.css";
-import Link from "next/link";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import TypeCard from "@/components/TypeCard/TypeCard";
 
@@ -26,6 +25,12 @@ export default function Home() {
             src="/pncounter.png"
             name="Positive-Negative Counter."
             description="A counter which can be both incremented and decremented. Built using two GCounters."
+          />
+          <TypeCard
+            href="/gset"
+            src="/gset.png"
+            name="Grow-only Set."
+            description="A set which can only be added to."
           />
         </div>
       </main>
