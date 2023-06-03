@@ -26,7 +26,7 @@ export default class GSet {
   }
 
   add(value: GSetTypes) {
-    this._values.add(value);
+    this._values = new Set([...this.values(), value]);
   }
 
   has(value: GSetTypes) {
