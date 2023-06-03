@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from "react";
-import Styles from "@/styles/Counter.module.css";
+import Styles from "./PNCounterSystem.module.css";
 import PNCounterStore from "@/stores/PNCounterStore";
+import System from "../System";
 
 export default function PNCounterSystem({
   name,
@@ -17,9 +18,8 @@ export default function PNCounterSystem({
 
   return (
     <>
-      <div className={`${Styles.container} new-item`}>
-        <h3 className={Styles.title}>{name}</h3>
-        <div className={Styles.pnInputContainer}>
+      <System name={name}>
+        <div className={Styles.inputContainer}>
           <div>
             <input
               type="number"
@@ -86,7 +86,7 @@ export default function PNCounterSystem({
             className={Styles.input}
           />
         </div>
-      </div>
+      </System>
     </>
   );
 }

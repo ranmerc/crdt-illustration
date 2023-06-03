@@ -5,16 +5,3 @@
   margin: 0;
   padding: 0;
 }
-
-.new-item {
-  animation: append-animate 500ms linear;
-}
-
-@keyframes append-animate {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
-}

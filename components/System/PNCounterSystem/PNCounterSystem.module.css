@@ -1,29 +1,13 @@
-.container {
-  font-family: "Inter", sans-serif;
-  width: fit-content;
-  display: grid;
-  row-gap: 0.2rem;
-}
-
 .inputContainer {
   display: flex;
   justify-content: space-around;
-}
-
-.pnInputContainer {
-  composes: inputContainer;
   flex-direction: column;
   row-gap: 0.5rem;
 }
 
-.pnInputContainer > * {
+.inputContainer > * {
   display: flex;
   column-gap: 0.5rem;
-}
-
-.title {
-  font-weight: 500;
-  font-size: 1.5rem;
 }
 
 .input {

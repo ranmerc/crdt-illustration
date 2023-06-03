@@ -1,0 +1,19 @@
+.container {
+  font-family: "Inter", sans-serif;
+  width: fit-content;
+  display: grid;
+  row-gap: 0.2rem;
+}
+
+.newItem {
+  animation: append-animate 500ms linear;
+}
+
+@keyframes append-animate {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}

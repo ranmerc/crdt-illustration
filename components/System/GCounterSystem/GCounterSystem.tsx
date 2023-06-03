@@ -1,6 +1,7 @@
 import { useSyncExternalStore } from "react";
-import Styles from "@/styles/Counter.module.css";
+import Styles from "./GCounterSystem.module.css";
 import GCounterStore from "@/stores/GCounterStore";
+import System from "../System";
 
 export default function GCounterSystem({
   name,
@@ -17,8 +18,7 @@ export default function GCounterSystem({
 
   return (
     <>
-      <div className={`${Styles.container} new-item`}>
-        <h3 className={Styles.title}>{name}</h3>
+      <System name={name}>
         <div className={Styles.inputContainer}>
           <input
             type="number"
@@ -44,7 +44,7 @@ export default function GCounterSystem({
             </svg>
           </button>
         </div>
-      </div>
+      </System>
     </>
   );
 }
