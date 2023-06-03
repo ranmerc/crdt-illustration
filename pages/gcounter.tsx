@@ -2,7 +2,7 @@ import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
 import GCounterSystem from "@/components/CounterSystem/GCounterSystem";
 import { useState } from "react";
-import mergeCounters from "@/utils/mergeCounters";
+import mergeSystems from "@/utils/mergeSystems";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import CounterButtonsBar from "@/components/CounterButtonsBar/CounterButtonsBar";
 import GCounterStore from "@/stores/GCounterStore";
@@ -47,7 +47,7 @@ export default function GCounterPage() {
             });
           }}
           onMergeClick={() => {
-            mergeCounters(counters);
+            mergeSystems(counters);
           }}
         ></CounterButtonsBar>
 

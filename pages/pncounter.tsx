@@ -2,7 +2,7 @@ import Head from "next/head";
 import Styles from "@/styles/CounterPage.module.css";
 import PNCounterSystem from "@/components/CounterSystem/PNCounterSystem";
 import { useState } from "react";
-import mergeCounters from "@/utils/mergeCounters";
+import mergeSystems from "@/utils/mergeSystems";
 import PageTitle from "@/components/PageTitle/PageTitle";
 import CounterButtonsBar from "@/components/CounterButtonsBar/CounterButtonsBar";
 import PNCounterStore from "@/stores/PNCounterStore";
@@ -44,7 +44,7 @@ export default function PNCounterPage() {
             setCounters((counters) => [...counters, new PNCounterStore()]);
           }}
           onMergeClick={() => {
-            mergeCounters(counters);
+            mergeSystems(counters);
           }}
         ></CounterButtonsBar>
 
