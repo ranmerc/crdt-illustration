@@ -2,8 +2,8 @@ import GSet from "./GSet";
 import { GSetIterable, GSetTypes } from "./GSet";
 
 export default class TwoPSet {
-  private _added: GSet;
-  private _removed: GSet;
+  protected _added: GSet;
+  protected _removed: GSet;
 
   constructor(addedInitial?: GSetIterable, removedInitial?: GSetIterable) {
     this._added = new GSet(addedInitial);
@@ -15,13 +15,13 @@ export default class TwoPSet {
   }
 
   add(element: GSetTypes) {
-    this._added.add(element);
+    this._added = new GSet([...this._added.values(), element]);
   }
 
   remove(element: GSetTypes) {
     // add to remove set only if it exists in add set
     if (this._added.has(element)) {
-      this._removed.add(element);
+      this._removed = new GSet([...this._removed.values(), element]);
     }
   }
 

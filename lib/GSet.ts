@@ -6,7 +6,7 @@ export default class GSet {
   private _values: Set<GSetTypes>;
 
   static difference(A: GSet, B: GSet) {
-    let differenceSet = A._values;
+    let differenceSet = new Set(A._values);
 
     for (const element of B._values) {
       if (differenceSet.has(element)) {
