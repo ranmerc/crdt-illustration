@@ -32,6 +32,12 @@ export default function Home() {
             name="Grow-only Set."
             description="A set which can only be added to."
           />
+          <TypeCard
+            href="/twopset"
+            src="/twopset.png"
+            name="Two-Phase Set."
+            description="A set which can be both added to and removed from. Built using two GSets."
+          />
         </div>
       </main>
     </>
