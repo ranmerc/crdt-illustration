@@ -23,19 +23,19 @@ export default function Home() {
           <TypeCard
             href="/pncounter"
             src="/pncounter.png"
-            name="Positive-Negative Counter."
+            name="Positive-Negative Counter"
             description="A counter which can be both incremented and decremented. Built using two GCounters."
           />
           <TypeCard
             href="/gset"
             src="/gset.png"
-            name="Grow-only Set."
+            name="Grow-only Set"
             description="A set which can only be added to."
           />
           <TypeCard
             href="/twopset"
             src="/twopset.png"
-            name="Two-Phase Set."
+            name="Two-Phase Set"
             description="A set which can be both added to and removed from. Built using two GSets."
           />
         </div>
